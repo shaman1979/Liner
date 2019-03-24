@@ -30,6 +30,6 @@ public class Spawner : MonoBehaviour
 
     private Vector2 GetPosition()
     {
-        return new Vector2(UnityEngine.Random.Range(minX, maxX), 5);
+        return new Vector2(UnityEngine.Random.Range(minX, maxX) + transform.position.x, 5);
     }
 }

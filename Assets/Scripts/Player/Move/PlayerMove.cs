@@ -18,6 +18,11 @@ public class PlayerMove : MonoBehaviour
 
     private bool isTouch = true;
 
+    private void Start()
+    {
+        Rotation(-45);    
+    }
+
     private void Update()
     {
         #region isEditor
@@ -51,7 +56,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        var newPosition = new Vector3(speed * (int)direction * Time.deltaTime, 0f, 0f);
+        var newPosition = new Vector3(0f ,speed * Time.deltaTime, 0f);
         transform.Translate(newPosition);
     }
 
@@ -61,17 +66,17 @@ public class PlayerMove : MonoBehaviour
         {
             case Direction.Left:
                 direction = Direction.Right;
+                Rotation(-45f);
                 break;
             case Direction.Right:
                 direction = Direction.Left;
+                Rotation(45f);
                 break;
         }
-        Rotation();
     }
 
-    private void Rotation()
+    private void Rotation(float angel)
     {
-        float rotationZ = (int)direction * 90f;
-        transform.Rotate(0f, 0f, rotationZ);
+        transform.rotation = Quaternion.Euler(0f, 0f, angel);
     }
 }
