@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 2092361599608496881, guid: b10e608a466da3e40bc948b81f952b52,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5566647
+      value: 7.16
       objectReference: {fileID: 0}
     - target: {fileID: 2092361599608496881, guid: b10e608a466da3e40bc948b81f952b52,
         type: 3}
@@ -471,6 +471,16 @@ PrefabInstance:
       propertyPath: direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7659319417050408747, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.8601191
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659319417050408747, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.8601191
+      objectReference: {fileID: 0}
     - target: {fileID: 7659319417050408724, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
       propertyPath: m_Sprite
@@ -490,6 +500,16 @@ PrefabInstance:
     - target: {fileID: 7659319417050408724, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659319417050408724, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.8601191
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659319417050408724, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
