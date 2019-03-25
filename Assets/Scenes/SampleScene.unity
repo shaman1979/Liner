@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8be7ffd31454b4e93b83b54bd50da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundScrollSpeed: 0.5
+  backgroundScrollSpeed: 0.1
 --- !u!23 &2106503533
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -635,10 +635,91 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f636f20209a8f049b6018b942b1d505, type: 2}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_RendererPriority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.50000346
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856925679182887206, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.49308792
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f636f20209a8f049b6018b942b1d505, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.2500038
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Parameters.textureMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Parameters.generateLightingData
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Emitting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Parameters.numCapVertices
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7659319417050408726, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
       propertyPath: m_Name
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659319417050408726, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659319417050408725, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
@@ -653,7 +734,7 @@ PrefabInstance:
     - target: {fileID: 7659319417050408725, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.19
+      value: -0.422
       objectReference: {fileID: 0}
     - target: {fileID: 7659319417050408725, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
@@ -709,11 +790,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.383028
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659319417050408727, guid: 51f6b389c4599c845a0dd011a0528779,
-        type: 3}
-      propertyPath: direction
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7659319417050408747, guid: 51f6b389c4599c845a0dd011a0528779,
         type: 3}
