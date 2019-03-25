@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 262617636214596557}
   - component: {fileID: 262617636214596556}
-  - component: {fileID: 262617636214596559}
   - component: {fileID: 262617636214596558}
-  - component: {fileID: 262617636214595633}
+  - component: {fileID: 7546848810222907892}
+  - component: {fileID: 3080710385883006523}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 262617636214595632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.82, y: 6.76, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.431}
+  m_LocalScale: {x: 0.3154, y: 0.3154, z: 0.1359374}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,32 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &262617636214596559
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262617636214595632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.9490446}
-    newSize: {x: 3.14, y: 6.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &262617636214596558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: 5
---- !u!114 &262617636214595633
+--- !u!114 &7546848810222907892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,8 +104,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 262617636214595632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df40f3801a39e9d4086e7536ca50ae12, type: 3}
+  m_Script: {fileID: 11500000, guid: 758e9d259dc74bb4789df19b1579d7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  deleteZone: -5
+  speed: 10
+--- !u!70 &3080710385883006523
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262617636214595632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.99999994, y: 1.9490445}
+  m_Direction: 0

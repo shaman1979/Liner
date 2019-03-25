@@ -28,6 +28,6 @@ public class Move : MonoBehaviour
 
     private void Movening()
     {
-        transform.Translate(0f, -speed * Time.deltaTime, 0f);
+        transform.position += new Vector3(0f, -speed * Time.deltaTime, 0f);
     }
 }
