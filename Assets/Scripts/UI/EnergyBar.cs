@@ -2,16 +2,13 @@
 using UnityEngine.UI;
 using Zenject;
 
-public class EnergyBar : MonoBehaviour, ISubscriber<float>
+public class EnergyBar : MonoBehaviour, ISubscriber<int>
 {
-    [Inject]
-    public IPublisher Publisher { get; set; }
-
     private Image selfImage;
 
     private void Start()
     {
-        Publisher.Subscribe(this as ISubscriber);
+        DataBus.Instance.Subscribe(this as ISubscriber);
         selfImage = GetComponent<Image>();
     }
 
@@ -20,20 +17,9 @@ public class EnergyBar : MonoBehaviour, ISubscriber<float>
         selfImage.fillAmount += value;
     }
 
-    private void RemoveEnergy(float value)
-    {
-        selfImage.fillAmount += value;
-    }
-
-    public void Update(float massage)
-    {
-        if(massage > 0)
-        {
-            AddEnergy(massage);
-        }
-        else
-        {
-            RemoveEnergy(massage);
-        }
+    public void Update(int massage)
+    {       
+        float value = (float)massage / 100;
+        AddEnergy(value);
     }
 }

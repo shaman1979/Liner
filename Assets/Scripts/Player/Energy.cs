@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-public class Energy : MonoBehaviour
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+
+public class Energy : MonoBehaviour, ISubscriber<int>
 {
+    public UnityEvent OnDestroy;
+
     [SerializeField]
-    private float energy = 1f;
+    private int energy = 100;
     [SerializeField]
-    private float interval = 0.5f;
+    private int interval = 5;
     [SerializeField]
-    private float remove = -0.01f;
-    [Inject]
-    public IPublisher Publisher { get; set; }
+    private int remove = -1;
 
     private void Start()
     {
         StartCoroutine(RemoveEnergy());
+        DataBus.Instance.Subscribe(this as ISubscriber);
     }
 
     IEnumerator RemoveEnergy()
@@ -24,9 +28,26 @@ public class Energy : MonoBehaviour
         {
             yield return new WaitForSeconds(interval);
             energy += remove;
-            Publisher.Notify<float>(remove);
-        }
+            DataBus.Instance.Notify<float>(remove);
 
+            if(energy <= 0)
+            {
+                OnDestroy.Invoke();
+            }
+        }
         yield return new WaitForSeconds(interval);
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void Update(int massage)
+    {
+        if (energy + massage <= 100)
+            energy += massage;
+        else if (energy + massage > 100)
+            energy = 100;
     }
 }

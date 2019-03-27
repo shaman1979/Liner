@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,48 +11,71 @@ public class PlayerMove : MonoBehaviour
         Right = 1
     }
 
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    public Direction direction;
+    private const int angel = 45;
 
+    private float speed;
+    private Direction direction;
 
     private bool isTouch = true;
+    private bool isStart = false;
+
+    
 
     private void Start()
     {
-        Rotation(-45);    
+        Rotation(angel);    
     }
 
     private void Update()
     {
-        #region isEditor
-        if (Application.isEditor)
+        Controller();
+        AddSpeed();
+    }
+
+    private void AddSpeed()
+    {
+        
+    }
+
+    private void Controller()
+    {
+        if (isStart)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            #region isEditor
+            if (Application.isEditor)
             {
-                DirectionChange();
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    DirectionChange();
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    DirectionChange();
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            #endregion
+            else
             {
-                DirectionChange();
+                if (Input.touchCount > 0 && isTouch)
+                {
+                    DirectionChange();
+                    isTouch = false;
+                }
+                else if (Input.touchCount <= 0)
+                {
+                    isTouch = true;
+                }
             }
+            Move();
         }
-        #endregion
         else
         {
-            if (Input.touchCount > 0 && isTouch)
+            if (Input.touchCount > 0 || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                DirectionChange();
-                isTouch = false;
-            }
-            else if(Input.touchCount <= 0 )
-            {
-                isTouch = true;
+                isStart = true;
+                speed = 6f;
             }
         }
-
-        Move();
     }
 
     private void Move()
@@ -66,11 +90,11 @@ public class PlayerMove : MonoBehaviour
         {
             case Direction.Left:
                 direction = Direction.Right;
-                Rotation(-45f);
+                Rotation(-angel);
                 break;
             case Direction.Right:
                 direction = Direction.Left;
-                Rotation(45f);
+                Rotation(angel);
                 break;
         }
     }
