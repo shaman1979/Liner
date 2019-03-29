@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
@@ -13,7 +11,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float maxX;
 
-    private void Start()
+    public void StartGame()
     {
         StartCoroutine(Spawn());
     }

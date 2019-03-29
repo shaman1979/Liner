@@ -12,28 +12,32 @@ public class Energy : MonoBehaviour, ISubscriber<int>
     [SerializeField]
     private int energy = 100;
     [SerializeField]
-    private int interval = 5;
+    private int interval = 1;
     [SerializeField]
     private int remove = -1;
 
     private void Start()
     {
-        StartCoroutine(RemoveEnergy());
         DataBus.Instance.Subscribe(this as ISubscriber);
+    }
+
+    public void StartGame()
+    {
+        StartCoroutine(RemoveEnergy());
     }
 
     IEnumerator RemoveEnergy()
     {
-        while(energy > 0f)
+        while (energy > 0f)
         {
             yield return new WaitForSeconds(interval);
             energy += remove;
-            DataBus.Instance.Notify<float>(remove);
+            DataBus.Instance.Notify(remove);
+        }
 
-            if(energy <= 0)
-            {
-                OnDestroy.Invoke();
-            }
+        if (energy <= 0)
+        {
+            OnDestroy.Invoke();
         }
         yield return new WaitForSeconds(interval);
     }

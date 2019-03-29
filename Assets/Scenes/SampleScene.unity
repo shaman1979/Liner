@@ -182,6 +182,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 9.941395}
   m_EdgeRadius: 0
+--- !u!114 &102579197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7659319417050408727, guid: 51f6b389c4599c845a0dd011a0528779,
+    type: 3}
+  m_PrefabInstance: {fileID: 7659319416828478218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f89d0ceccfc943409a1cae46343663d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144549217
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +468,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7659319416828478218}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &456558316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092361599608496882, guid: b10e608a466da3e40bc948b81f952b52,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092361597506335643}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c316e779ad38d428fe31c3c28d5b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +492,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -557,6 +582,56 @@ MonoBehaviour:
   target: {fileID: 360718816}
   speed: 5
   offsetY: 2
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6cbaa151940a04a96ec53d46ff9d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStartGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 102579197}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 189321858}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 456558316}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &900474486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1274,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907872683137773674, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: interval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907872683137773674, guid: 51f6b389c4599c845a0dd011a0528779,
+        type: 3}
+      propertyPath: remove
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f6b389c4599c845a0dd011a0528779, type: 3}

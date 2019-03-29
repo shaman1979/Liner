@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     private const int angel = 45;
 
     private float speed;
-    private Direction direction;
+    private Direction direction = Direction.Left;
 
     private bool isTouch = true;
     private bool isStart = false;
@@ -25,22 +25,30 @@ public class PlayerMove : MonoBehaviour
 
     private float maxSpeed = 15f;
 
+    public void StartGame()
+    {
+        isStart = true;
+        speed = 5f;
+    }
     private void Start()
     {
         nouTime = interval;
-        Rotation(angel);    
+        Rotation(angel);
     }
 
     private void Update()
     {
-        Controller();
-        AddSpeed();
+        if (isStart)
+        {
+            Controller();
+            AddSpeed();
+        }
     }
 
     private void AddSpeed()
     {
         nouTime -= Time.deltaTime;
-        if(nouTime <= 0)
+        if (nouTime <= 0)
         {
             if (speed < maxSpeed)
             {
@@ -52,48 +60,37 @@ public class PlayerMove : MonoBehaviour
 
     private void Controller()
     {
-        if (isStart)
+        #region isEditor
+        if (Application.isEditor)
         {
-            #region isEditor
-            if (Application.isEditor)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    DirectionChange();
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    DirectionChange();
-                }
+                DirectionChange();
             }
-            #endregion
-            else
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (Input.touchCount > 0 && isTouch)
-                {
-                    DirectionChange();
-                    isTouch = false;
-                }
-                else if (Input.touchCount <= 0)
-                {
-                    isTouch = true;
-                }
+                DirectionChange();
             }
-            Move();
         }
+        #endregion
         else
         {
-            if (Input.touchCount > 0 || Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.touchCount > 0 && isTouch)
             {
-                isStart = true;
-                speed = 6f;
+                DirectionChange();
+                isTouch = false;
+            }
+            else if (Input.touchCount <= 0)
+            {
+                isTouch = true;
             }
         }
+        Move();
     }
 
     private void Move()
     {
-        var newPosition = new Vector3(0f ,speed * Time.deltaTime, 0f);
+        var newPosition = new Vector3(0f, speed * Time.deltaTime, 0f);
         transform.Translate(newPosition);
     }
 
