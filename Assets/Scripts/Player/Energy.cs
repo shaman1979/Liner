@@ -7,8 +7,6 @@ using UnityEngine.Events;
 
 public class Energy : MonoBehaviour, ISubscriber<int>
 {
-    public UnityEvent OnDestroy;
-
     [SerializeField]
     private int energy = 100;
     [SerializeField]
@@ -37,7 +35,7 @@ public class Energy : MonoBehaviour, ISubscriber<int>
 
         if (energy <= 0)
         {
-            OnDestroy.Invoke();
+            DataBus.Instance.Notify<EndGameValue>(new EndGameValue());
         }
         yield return new WaitForSeconds(interval);
     }
