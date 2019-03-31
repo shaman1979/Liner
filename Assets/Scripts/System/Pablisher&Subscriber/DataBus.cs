@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DataBus : Publisher
 {
-    private DataBus() { }
+    public DataBus() { }
 
     private static DataBus _instance;
 
-    public static DataBus Instance => _instance ?? (_instance = new DataBus());
+    public static DataBus Instance { get { return _instance; } set { _instance = value; } }
 
 }
