@@ -14,6 +14,8 @@ public class Energy : MonoBehaviour, ISubscriber<int>
     [SerializeField]
     private int remove = -1;
 
+    [Inject]
+    public EndGameValue endGameValue { get; set; }
     private void Start()
     {
         DataBus.Instance.Subscribe(this as ISubscriber);
@@ -35,7 +37,7 @@ public class Energy : MonoBehaviour, ISubscriber<int>
 
         if (energy <= 0)
         {
-            DataBus.Instance.Notify<EndGameValue>(new EndGameValue());
+            DataBus.Instance.Notify<EndGameValue>(endGameValue);
         }
         yield return new WaitForSeconds(interval);
     }
