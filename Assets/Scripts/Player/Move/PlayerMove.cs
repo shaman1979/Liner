@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
 
     private float addSpeedInTime = 0.5f;
     private float interval = 1f;
-    private float nouTime = 0f;//todo: Переименовать когда будет переводчик
+    private float nowTime = 0f;//todo: Переименовать когда будет переводчик
 
     private float maxSpeed = 15f;
 
@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void Start()
     {
-        nouTime = interval;
+        nowTime = interval;
         Rotation(angel);
     }
 
@@ -47,13 +47,13 @@ public class PlayerMove : MonoBehaviour
 
     private void AddSpeed()
     {
-        nouTime -= Time.deltaTime;
-        if (nouTime <= 0)
+        nowTime -= Time.deltaTime;
+        if (nowTime <= 0)
         {
             if (speed < maxSpeed)
             {
                 speed += addSpeedInTime;
-                nouTime = interval;
+                nowTime = interval;
             }
         }
     }

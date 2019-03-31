@@ -26,7 +26,7 @@ public class Publisher : IPublisher
         {
             if(subscriber is ISubscriber<TMassage>)
             {
-                ((ISubscriber<TMassage>)subscriber).Update(massage);
+                ((ISubscriber<TMassage>)subscriber).UpdateData(massage);
             }
 
             if(subscriber is IPublishable)
