@@ -9,5 +9,5 @@ public interface ISubscriber
 
 public interface ISubscriber<TMassage>: ISubscriber
 {
-    void Update(TMassage massage);
+    void UpdateData(TMassage massage);
 }

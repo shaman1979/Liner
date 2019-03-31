@@ -6,7 +6,7 @@ public class EndGame : MonoBehaviour, ISubscriber<EndGameValue>
 {
     public UnityEvent OnEndGame;
 
-    public void Update(EndGameValue massage)
+    public void UpdateData(EndGameValue massage)
     {
         OnEndGame.Invoke();
     }

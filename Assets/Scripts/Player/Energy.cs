@@ -45,7 +45,7 @@ public class Energy : MonoBehaviour, ISubscriber<int>
         Destroy(gameObject);
     }
 
-    public void Update(int massage)
+    public void UpdateData(int massage)
     {
         if (energy + massage <= 100)
             energy += massage;

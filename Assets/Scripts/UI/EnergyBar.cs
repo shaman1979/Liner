@@ -17,7 +17,7 @@ public class EnergyBar : MonoBehaviour, ISubscriber<int>
         selfImage.fillAmount += value;
     }
 
-    public void Update(int massage)
+    public void UpdateData(int massage)
     {       
         float value = (float)massage / 100;
         AddEnergy(value);
