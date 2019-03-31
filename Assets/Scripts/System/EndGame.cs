@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-
+using Zenject;
 public class EndGame : MonoBehaviour, ISubscriber<EndGameValue>
 {
     public UnityEvent OnEndGame;
@@ -19,5 +19,6 @@ public class EndGame : MonoBehaviour, ISubscriber<EndGameValue>
 
 public class EndGameValue
 {
-    public float Score { get { return Score; } set { Score = value; } }
+    [Inject]
+    public ScoreValue Score { get; set; }
 }

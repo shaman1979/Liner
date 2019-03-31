@@ -7,5 +7,6 @@ public class GameInstaller : MonoInstaller
     {
         Container.Bind<IPublisher>().To<Publisher>().AsSingle();
         Container.Bind<EndGameValue>().To<EndGameValue>().AsSingle();
+        Container.Bind<ScoreValue>().To<ScoreValue>().AsSingle();
     }
 }
