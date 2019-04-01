@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         nowTime = interval;
-        Rotation(angel);
+        Rotation(-angel);
     }
 
     private void Update()
