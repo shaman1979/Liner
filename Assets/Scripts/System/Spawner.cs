@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Zenject;
+
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
@@ -10,6 +12,11 @@ public class Spawner : MonoBehaviour
     private float minX;
     [SerializeField]
     private float maxX;
+    [SerializeField]
+    private Transform parent;
+
+    [Inject]
+    public Publisher Publisher { get; set; }
 
     public void StartGame()
     {
@@ -21,7 +28,9 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             var position = GetPosition();
-            GameObject obj = Instantiate(objects[0], position, Quaternion.identity);
+            Score obj = Instantiate(objects[0],parent).GetComponent<Score>() as Score;
+            obj.Publisher = Publisher;
+            obj.transform.position = position;
             yield return new WaitForSeconds(interval);
         }
     }

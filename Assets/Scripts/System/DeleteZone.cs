@@ -8,6 +8,8 @@ public class DeleteZone : MonoBehaviour
 {
     [Inject]
     public EndGameValue endGameValue { get; set; }
+    [Inject]
+    public Publisher Publisher { get; set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +21,6 @@ public class DeleteZone : MonoBehaviour
 
     private void EndGame()
     {
-        DataBus.Instance.Notify<EndGameValue>(endGameValue);
+        Publisher.Notify<EndGameValue>(endGameValue);
     }
 }

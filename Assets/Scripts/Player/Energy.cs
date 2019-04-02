@@ -16,9 +16,12 @@ public class Energy : MonoBehaviour, ISubscriber<int>
 
     [Inject]
     public EndGameValue endGameValue { get; set; }
+    [Inject]
+    public Publisher Publisher { get; set; }
+
     private void Start()
     {
-        DataBus.Instance.Subscribe(this as ISubscriber);
+        Publisher.Subscribe(this);
     }
 
     public void StartGame()
@@ -32,12 +35,12 @@ public class Energy : MonoBehaviour, ISubscriber<int>
         {
             yield return new WaitForSeconds(interval);
             energy += remove;
-            DataBus.Instance.Notify(remove);
+            Publisher.Notify(remove);
         }
 
         if (energy <= 0)
         {
-            DataBus.Instance.Notify<EndGameValue>(endGameValue);
+            Publisher.Notify<EndGameValue>(endGameValue);
         }
         yield return new WaitForSeconds(interval);
     }

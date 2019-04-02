@@ -8,8 +8,12 @@ public class Points : MonoBehaviour
     [Inject]
     public ScoreValue ScoreValue { get; set; }
 
+    [Inject]
+    public Publisher Publisher { get; set; }
+
     [SerializeField]
     private float interval;
+
     [SerializeField]
     private int point;
 
@@ -28,7 +32,7 @@ public class Points : MonoBehaviour
         while(true)
         {
             ScoreValue.Value += point;
-            DataBus.Instance.Notify(ScoreValue);
+            Publisher.Notify(ScoreValue);
             yield return new WaitForSeconds(interval);
         }
     }
