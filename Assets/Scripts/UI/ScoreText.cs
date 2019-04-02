@@ -6,6 +6,9 @@ public class ScoreText : MonoBehaviour, ISubscriber<ScoreValue>
 {
     private Text selfText;
 
+    [Inject]
+    public Publisher Publisher { get; set; }
+
     public void UpdateData(ScoreValue massage)
     {
         selfText.text = massage.Value.ToString();
@@ -14,7 +17,7 @@ public class ScoreText : MonoBehaviour, ISubscriber<ScoreValue>
     private void Start()
     {
         selfText = GetComponent<Text>();
-        DataBus.Instance.Subscribe(this);
+        Publisher.Subscribe(this);
     }
 }
 

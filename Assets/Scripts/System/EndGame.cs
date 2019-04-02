@@ -5,9 +5,11 @@ public class EndGame : MonoBehaviour, ISubscriber<EndGameValue>
 {
     public UnityEvent OnEndGame;
 
+    [Inject]
+    public Publisher Publisher { get; set; }
     private void Start()
     {
-        DataBus.Instance.Subscribe(this as ISubscriber<EndGameValue>);    
+        Publisher.Subscribe(this as ISubscriber<EndGameValue>);    
     }
 
     public void UpdateData(EndGameValue massage)

@@ -6,16 +6,17 @@ using Zenject;
 
 public class Score : MonoBehaviour
 {
-
     [SerializeField]
     private int point = 5;
+
+    public Publisher Publisher { get; set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             Destroy();
-            DataBus.Instance.Notify(point);
+            Publisher.Notify(point);
         }
     }
 

@@ -4,11 +4,14 @@ using Zenject;
 
 public class EnergyBar : MonoBehaviour, ISubscriber<int>
 {
+    [Inject]
+    public Publisher Publisher { get; set; }
+
     private Image selfImage;
 
     private void Start()
     {
-        DataBus.Instance.Subscribe(this as ISubscriber);
+        Publisher.Subscribe(this as ISubscriber);
         selfImage = GetComponent<Image>();
     }
 
