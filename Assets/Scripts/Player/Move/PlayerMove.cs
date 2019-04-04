@@ -14,21 +14,21 @@ public class PlayerMove : MonoBehaviour
     private const int angel = 45;
 
     private float speed;
-    private Direction direction = Direction.Left;
+    private Direction direction = Direction.Right;
 
     private bool isTouch = true;
     private bool isStart = false;
 
     private float addSpeedInTime = 0.5f;
     private float interval = 1f;
-    private float nowTime = 0f;//todo: Переименовать когда будет переводчик
+    private float nowTime = 0f;
 
     private float maxSpeed = 15f;
 
     public void StartGame()
     {
         isStart = true;
-        speed = 5f;
+        speed = 3f;
     }
     private void Start()
     {
@@ -90,8 +90,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        var newPosition = new Vector3(0f, speed * Time.deltaTime, 0f);
-        transform.Translate(newPosition);
+        var newPosition = new Vector3(speed * Time.deltaTime * (int)direction,0f, 0f);
+        transform.position += newPosition;
     }
 
     private void DirectionChange()
