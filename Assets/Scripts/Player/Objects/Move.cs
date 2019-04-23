@@ -7,7 +7,7 @@ public class Move : MonoBehaviour
 {
     #region Configs
     [SerializeField]
-    private float speed;
+    private float speed = 1f;
     #endregion
 
     private void Update()
