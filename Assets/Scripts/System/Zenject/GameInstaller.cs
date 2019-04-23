@@ -5,7 +5,8 @@ public class GameInstaller : MonoInstaller
 {
     [SerializeField]
     private Transform player;
-
+    [SerializeField]
+    private Transform world;
     public override void InstallBindings()
     {
         Container.Bind<Publisher>().To<Publisher>().AsSingle();
@@ -16,10 +17,16 @@ public class GameInstaller : MonoInstaller
         {
             Container.BindInstance(player).WithId(TransformType.Player).AsSingle();
         }
+
+        if (world != null)
+        {
+            Container.BindInstance(world).WithId(TransformType.World).AsSingle();
+        }
     }
 }
 
 public enum TransformType
 {
-    Player
+    Player,
+    World
 }

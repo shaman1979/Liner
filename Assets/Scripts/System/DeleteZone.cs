@@ -8,6 +8,7 @@ public class DeleteZone : MonoBehaviour
 {
     [Inject]
     public EndGameValue endGameValue { get; set; }
+
     [Inject]
     public Publisher Publisher { get; set; }
 

@@ -6,9 +6,11 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField]
     private float interval;
+
     [SerializeField]
     private GameObject[] objects;
-    [SerializeField]
+
+    [Inject(Id = TransformType.World)]
     private Transform parent;
 
     [Inject]
