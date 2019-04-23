@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerMove : MonoBehaviour
 {
     public enum Direction
@@ -11,7 +11,9 @@ public class PlayerMove : MonoBehaviour
         Right = 1
     }
 
-    private const int angel = 45;
+    public TapEvent Tap;
+
+    private const int angel = 55;
 
     private float speed;
     private Direction direction = Direction.Right;
@@ -79,6 +81,7 @@ public class PlayerMove : MonoBehaviour
             {
                 DirectionChange();
                 isTouch = false;
+
             }
             else if (Input.touchCount <= 0)
             {
@@ -105,12 +108,20 @@ public class PlayerMove : MonoBehaviour
             case Direction.Right:
                 direction = Direction.Left;
                 Rotation(angel);
-                break;
+                break;               
         }
+
+        Tap.Invoke(direction);
     }
 
     private void Rotation(float angel)
     {
         transform.rotation = Quaternion.Euler(0f, 0f, angel);
     }
+}
+
+[Serializable]
+public class TapEvent : UnityEvent<PlayerMove.Direction>
+{
+
 }
