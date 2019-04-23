@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerMove : MonoBehaviour
 {
     public enum Direction
@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
         Left = -1,
         Right = 1
     }
+
+    public UnityEvent Tap;
 
     private const int angel = 45;
 
@@ -66,10 +68,12 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 DirectionChange();
+                Tap.Invoke();
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 DirectionChange();
+                Tap.Invoke();
             }
         }
         #endregion
@@ -79,10 +83,12 @@ public class PlayerMove : MonoBehaviour
             {
                 DirectionChange();
                 isTouch = false;
+                Tap.Invoke();
             }
             else if (Input.touchCount <= 0)
             {
                 isTouch = true;
+                Tap.Invoke();
             }
         }
         Move();
