@@ -11,9 +11,9 @@ public class PlayerMove : MonoBehaviour
         Right = 1
     }
 
-    public UnityEvent Tap;
+    public TapEvent Tap;
 
-    private const int angel = 45;
+    private const int angel = 55;
 
     private float speed;
     private Direction direction = Direction.Right;
@@ -68,12 +68,10 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 DirectionChange();
-                Tap.Invoke();
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 DirectionChange();
-                Tap.Invoke();
             }
         }
         #endregion
@@ -83,12 +81,11 @@ public class PlayerMove : MonoBehaviour
             {
                 DirectionChange();
                 isTouch = false;
-                Tap.Invoke();
+
             }
             else if (Input.touchCount <= 0)
             {
                 isTouch = true;
-                Tap.Invoke();
             }
         }
         Move();
@@ -111,12 +108,20 @@ public class PlayerMove : MonoBehaviour
             case Direction.Right:
                 direction = Direction.Left;
                 Rotation(angel);
-                break;
+                break;               
         }
+
+        Tap.Invoke(direction);
     }
 
     private void Rotation(float angel)
     {
         transform.rotation = Quaternion.Euler(0f, 0f, angel);
     }
+}
+
+[Serializable]
+public class TapEvent : UnityEvent<PlayerMove.Direction>
+{
+
 }

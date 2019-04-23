@@ -38,7 +38,6 @@ public class Tail : MonoBehaviour
     private void Scale()
     {
         var distance = Vector3.Distance(transform.position, Target.position);
-
         transform.localScale = new Vector3(distance, transform.localScale.y, 1f);
     }
 
