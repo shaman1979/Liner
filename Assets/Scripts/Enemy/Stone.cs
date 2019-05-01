@@ -9,9 +9,11 @@ public class Stone : Enemy
         SpawnType = new RandomSpawn();
     }
 
+   
     public override void GetPosition(Vector2[] position)
     {
         transform.position = (SpawnType as ISpawnType<Vector2[]>).SetPosition(position);
+        ChangeSide();
     }
 
     protected override void DoSomething(GameObject player)

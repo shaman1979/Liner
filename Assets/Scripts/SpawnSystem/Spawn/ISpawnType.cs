@@ -21,7 +21,7 @@ public class RandomSpawn : ISpawnType<Vector2[]>
     /// <returns>Рандомное значение относительно pointsp[1] и points[0]</returns>
     public Vector2 SetPosition(Vector2[] points)
     {
-        return new Vector2(Random.Range(points[0].x, points[1].x), points[0].y); 
+        return new Vector2(Random.Range(points[0].x, 0), points[0].y); 
     }
 }
 
