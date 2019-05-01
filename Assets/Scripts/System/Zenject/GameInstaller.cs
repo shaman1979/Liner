@@ -13,15 +13,9 @@ public class GameInstaller : MonoInstaller
         Container.Bind<EndGameValue>().To<EndGameValue>().AsSingle();
         Container.Bind<ScoreValue>().To<ScoreValue>().AsSingle();
 
-        if (player != null)
-        {
-            Container.BindInstance(player).WithId(TransformType.Player).AsSingle();
-        }
+        Container.BindInstance(player).WithId(TransformType.Player);
+        Container.BindInstance(world).WithId(TransformType.World);
 
-        if (world != null)
-        {
-            Container.BindInstance(world).WithId(TransformType.World).AsSingle();
-        }
     }
 }
 
