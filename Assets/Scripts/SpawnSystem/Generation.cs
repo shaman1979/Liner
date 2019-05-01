@@ -30,7 +30,7 @@ public class Generation : MonoBehaviour
 
     private void CreatingEnemy()
     {
-        var enemes = Libriary.Search((ZoneType)UnityEngine.Random.Range(0,3));
+        var enemes = Libriary.Search((ZoneType)UnityEngine.Random.Range(0, 3));
 
         for (int i = 0; i < enemes.Count; i++)
         {
@@ -38,13 +38,28 @@ public class Generation : MonoBehaviour
 
             enemy.GetPosition
                 (
-                new Vector2[]
-                    {
-                        new Vector2(GameConfig.SpawnZone.LeftX, GameConfig.SpawnZone.UpY),
-                        new Vector2(GameConfig.SpawnZone.RightX, GameConfig.SpawnZone.UpY)
-                    }
+                SideSpawn()
                 );
         }
 
+    }
+
+    private Vector2[] SideSpawn()
+    {
+        int side = UnityEngine.Random.Range(0, 100);
+
+        if (side <= 50)
+            return new Vector2[]
+                                {
+                        new Vector2(GameConfig.SpawnZone.LeftX, GameConfig.SpawnZone.UpY),
+                        new Vector2(GameConfig.SpawnZone.RightX, GameConfig.SpawnZone.UpY)
+                                };
+
+        else
+            return new Vector2[]
+                                {
+                        new Vector2(GameConfig.SpawnZone.RightX, GameConfig.SpawnZone.UpY),
+                        new Vector2(GameConfig.SpawnZone.LeftX, GameConfig.SpawnZone.UpY)
+                                };
     }
 }
