@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Configs
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 36a5bca8f9a79b34b973d2a762104f5c, type: 2}
+  libriary: {fileID: 11400000, guid: 4e130f9e73491614783744f23662c15c, type: 2}

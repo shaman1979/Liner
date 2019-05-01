@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class PlayerMove : MonoBehaviour
+using Sirenix.OdinInspector;
+
+public class PlayerMove : SerializedMonoBehaviour
 {
     public enum Direction
     {
         Left = -1,
         Right = 1
     }
-
+    
     public TapEvent Tap;
 
     private const int angel = 55;
 
+    [SerializeField][ ReadOnly]
     private float speed;
     private Direction direction = Direction.Right;
 
